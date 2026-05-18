@@ -1,0 +1,26 @@
+name:Java CI Pipeline
+on:
+ push:
+  branches:
+   -main
+
+jobs:
+ build:
+  runs-on:ubuntu-latest
+
+  steps:
+
+   -name:Checkout Repository
+    user:actions/checkout@v4
+
+  -name:Set up JDK
+   user:action/setup-java@v4
+   with:
+    distribution:'temurin'
+    java-version:'17'
+
+  -name:Complie Java Programe
+   run:javac Main.java
+
+  -name:Run Java Programe
+   run:java Main
