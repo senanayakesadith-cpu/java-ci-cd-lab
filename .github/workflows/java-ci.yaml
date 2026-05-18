@@ -3,7 +3,7 @@ name:Java CI Pipeline
 on:
  push:
   branches:
-   -main
+   - main
 
 jobs:
  build:
@@ -12,10 +12,10 @@ jobs:
   steps:
 
    -name:Checkout Repository
-    user:actions/checkout@v4
+    uses:actions/checkout@v4
 
    -name:Set up JDK
-    user:action/setup-java@v4
+    uses:action/setup-java@v4
     with:
      distribution:'temurin'
      java-version:'17'
