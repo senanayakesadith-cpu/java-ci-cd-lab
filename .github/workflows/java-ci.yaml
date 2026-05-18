@@ -13,14 +13,14 @@ jobs:
    -name:Checkout Repository
     user:actions/checkout@v4
 
-  -name:Set up JDK
-   user:action/setup-java@v4
-   with:
-    distribution:'temurin'
-    java-version:'17'
+   -name:Set up JDK
+    user:action/setup-java@v4
+    with:
+     distribution:'temurin'
+     java-version:'17'
 
-  -name:Complie Java Programe
-   run:javac Main.java
+   -name:Complie Java Programe
+    run:javac Main.java
 
-  -name:Run Java Programe
-   run:java Main
+   -name:Run Java Programe
+    run:java Main
