@@ -4,8 +4,8 @@ description: "Compile and run Java program"
 
 inputs:
   file-name:
-    description:"Java file name"
-    required:true
+    description: "Java file name"
+    required: true
 
 runs:
   using: "composite"
