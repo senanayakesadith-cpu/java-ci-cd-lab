@@ -1,24 +1,25 @@
-name: Java CI Pipeline
+name: "Java Buid Action"
 
-on:
- push:
-  branches:
-    - main
+description: "Compile and run Java program"
 
-jobs:
-  build:
-   runs-on: ubuntu-latest
+runs:
+  using: "composite"
 
-   steps:
-     - name: Checkout Repositary
-       uses: actions/checkout@v4
+  steps:
+    - name: Compile Java
+      run: javac Main.java
+      shell: bash
 
-     - name: Set Up JDK
-       uses: actions/setup-java@v4
-       with: 
-        distribution: 'temurin'
-        java-version: '17'
 
-        
-     - name: Run Custom Action
-       uses: ./.github/actions/java-build
+
+    - name: Compile Java Program
+      run: javac *.java
+      shell: bash
+
+    - name: Run Java Program
+      run: java Main
+      shell: bash
+
+    - name: Run Test
+      run: java CalculatorTest
+      shell: bash
