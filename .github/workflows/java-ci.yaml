@@ -23,7 +23,7 @@ jobs:
        id: custom-action
        uses: ./.github/actions/java-build
        with:
-        file-name: CalculatorTest
+        file-name: calculatortest
 
      - name: Print Output
        run: echo "${{steps.custom-action.outputs.result}}"
