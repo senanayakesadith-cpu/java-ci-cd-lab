@@ -1,15 +1,15 @@
-name: "Java Buid Action"
+name: "Greeting message"
 
-description: "Compile and run Java program"
+description: "Receivers name and returns message"
 
 inputs:
-  file-name:
-    description: "Java file name"
+  username:
     required: true
+    description: "Username"
 
 outputs:
-  result:
-    description: "Build result"
+  message:
+    description: "Greeting message"
 
 runs:
   using: "composite"
@@ -23,6 +23,6 @@ runs:
       run: java ${{inputs.file-name}}
       shell: bash 
 
-    - name: Set Output
-      run: echo "result=Build Successful">> $GITHUB_OUTPUT
+    - name: Create Greeting
+      run: echo "message=Hello${{inputs.username}}
       shell: bash

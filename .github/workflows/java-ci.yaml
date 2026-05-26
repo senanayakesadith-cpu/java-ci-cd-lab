@@ -1,4 +1,4 @@
-name: Java CI Pipeline
+name: Greeting Workflow
 
 on:
  push:
@@ -20,10 +20,10 @@ jobs:
         java-version: '17'
 
      - name: Run Custom Action
-       id: custom-action
+       id: greet-action
        uses: ./.github/actions/java-build
        with:
-        file-name: calculatortest
+        username: Pasindu
 
-     - name: Print Output
+     - name: Show Greeting
        run: echo "${{steps.custom-action.outputs.result}}"
