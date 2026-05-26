@@ -15,14 +15,6 @@ runs:
   using: "composite"
 
   steps:
-    - name: Compile Java
-      run: javac ${{inputs.file-name}}.java
-      shell: bash
-
-    - name: Run Java Program
-      run: java ${{inputs.file-name}}
-      shell: bash 
-
     - name: Create Greeting
       run: echo "message=Hello${{inputs.username}}
       shell: bash
