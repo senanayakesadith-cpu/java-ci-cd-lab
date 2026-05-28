@@ -7,14 +7,28 @@ inputs:
     required: true
     description: "Username"
 
+  file-name:
+    required: true
+    description: "Java file name without .java extension"
+
 outputs:
   message:
     description: "Greeting message"
+    value: ${{ steps.greeting.outputs.message }}
 
 runs:
   using: "composite"
 
   steps:
+    - name: Compile Java
+      run: javac ${{ inputs.file-name }}.java
+      shell: bash
+
+    - name: Run Java Program
+      run: java ${{ inputs.file-name }}
+      shell: bash
+
     - name: Create Greeting
-      run: echo "message=Hello${{inputs.username}}
+      id: greeting
+      run: echo "message=Hello ${{ inputs.username }}" >> $GITHUB_OUTPUT
       shell: bash

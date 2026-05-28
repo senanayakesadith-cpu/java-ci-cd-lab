@@ -24,6 +24,7 @@ jobs:
        uses: ./.github/actions/java-build
        with:
         username: Pasindu
+        file-name: Main
 
      - name: Show Greeting
-       run: echo "${{steps.custom-action.outputs.result}}"
+       run: echo "${{steps.greet-action.outputs.message}}"
